@@ -1,0 +1,26 @@
+<div class="container testBox">
+    <h5>Test Topic</h5>
+    <div>
+        <input type="text" class="form-control" [(ngModel)]="test.topic">
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5>Score</h5>
+            <div>
+                <input type="number" class="form-control" min="0" [(ngModel)]="test.score" (keyup)="calculatePercentage()">
+            </div>
+        </div>
+        <div class="col">
+            <h5>Out of</h5>
+            <div>
+                <input type="number" class="form-control" min="0" [(ngModel)]="test.outOf" (keyup)="calculatePercentage()">
+            </div>
+        </div>
+        <div class="col">
+            <h5>Percentage</h5>
+            <div>
+                <input type="number" class="form-control" [(ngModel)]="test.percentage" disabled>
+            </div>
+        </div>
+    </div>
+</div>

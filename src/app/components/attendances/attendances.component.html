@@ -1,0 +1,90 @@
+<div>
+  <mat-toolbar class="header">
+    <span> My mathVersion </span>
+  </mat-toolbar>
+</div>
+
+<div>
+  <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1">
+    <div class="sidenav">
+      <a href="#report">Report</a>
+      <a href="#services">Daily Students</a>
+      <a href="#clients">Guidelines</a>
+      <a href="#contact">Notices</a>
+      <a href="#contact">Advance leave</a>
+      <a href="#contact">Attendance</a>
+      <a href="#contact">Logout</a>
+    </div>
+  </div>
+  <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 horizontalNav">
+    <div>
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#">Daily Students</a>
+        </li>
+      </ul>
+      <div class="filterHeader">
+        <div>
+          <mat-toolbar class="filter">
+            <span>filters </span>
+          </mat-toolbar>
+        </div>
+        <div class="container-fluid">
+          <table class="table table-condensed">
+            <thead class="primary_thead">
+              <tr class="tableHeading">
+                <th>#</th>
+                <th>TAG</th>
+                <th>NAME</th>
+                <th>GR</th>
+                <th>SCHOOL</th>
+                <th>ALPHABET</th>
+                <th>COURSE & INCHARGE</th>
+                <th>TEACHERS</th>
+                <th>IN & OUT</th>
+                <th>TIME</th>
+                <th>REPORT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let attendance of attendances">
+                <td> {{attendance.sno || '--' }} </td>
+                <td> {{attendance.tag || '--'}} </td>
+                <td> {{attendance.name || '--'}}</td>
+                <td> {{attendance.gr || '--'}} </td>
+                <td> {{attendance.school || '--'}} </td>
+                <td> -- </td>
+                <td>
+                  <span>Course</span>
+                  <br>
+                  <label> {{attendance.course || '--'}}</label>
+                  <br>
+                  <span>Head of Department</span>
+                  <br>
+                  <label>{{attendance.hod || '--'}}</label>
+                </td>
+                <td> {{attendance.teacher || '--'}} </td>
+                <td>
+                  <span>IN</span>
+                  <br>
+                  <label>{{attendance.in | date: 'shortTime' || '--'}}</label>
+                  <br>
+                  <span>Out</span>
+                  <br>
+                  <label>{{attendance.out | date: 'shortTime' || '--'}}</label>
+                </td>
+                <td> {{attendance.time | date: 'short' || '--'}} </td>
+                <td>
+                  <!-- <div *ngIf="attendance?.status?.toLowerCase() !=='submitted';else otherContent"> -->
+                    <a [routerLink]="['/attendance-details', attendance.key]">Add</a>
+                  <!-- </div> -->
+                  <!-- <ng-template #otherContent>Add</ng-template> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

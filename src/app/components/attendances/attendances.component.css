@@ -1,0 +1,118 @@
+.header {
+ background-color: rgb(255, 94, 0);
+ color: white;
+ height: 35px;
+}
+
+.filter {
+    background-color: #2196F3;
+    color: white;
+    height: 105px;
+   }
+
+.bodyPart {
+    background-color: gray;
+}
+
+.sidenav {
+    height:100%;
+    width: 130px;       
+    position: fixed;
+    z-index: 1;
+    /* top: 20px; */
+    left: 0px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+    
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(3, 3, 3);
+    display: block;
+ }
+   
+    /* .sidenav a:hover {
+        color: #064579;
+    } */
+    
+.main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+    
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.tablink {
+    background-color: white;
+    color:  rgb(255, 94, 0);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+.nav-tabs>li {
+    padding-top: 15px;
+    width: 125px;
+    float: left;
+    margin-bottom: -1px;
+}
+
+.tableData {
+    height: 80px;
+    font-size: 13px;
+}
+  
+/* table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 0px solid #ddd;
+} */
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th, 
+.table>thead>tr>td,
+.table>thead>tr>th {
+    padding: 8px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+.tableHeading {
+    height: 40px;
+    background-color: orange;
+}
+
+.horizontalNav {
+    background-color: #eee;
+}
+
+.filterHeader {
+   background-color: white; 
+   padding-top: 20px;
+}
+
+.unableLink{
+    pointer-events: none;
+    cursor: default;
+}

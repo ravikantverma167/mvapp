@@ -1,0 +1,163 @@
+<div *ngIf="!attendance" class="loading">Loading...</div>
+
+<div *ngIf="attendance">
+    <div class="row justify-content-md-center header">
+        <div>
+            <mat-toolbar>
+                <div>
+                    <div>
+                        <h2 class="studentName">{{attendance.name}}</h2>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <h5>Gr {{attendance.gr}}</h5>
+                    </div>
+                </div>
+            </mat-toolbar>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="container-fluid">
+                <h2 class="title">Enter Info</h2>
+                <div class="container topSpace">
+                    <h4>Tag Number</h4>
+                    <input type="number" name="tagNumber" [(ngModel)]="attendance.tag" class="form-control" disabled required>
+                </div>
+                <div class="container topSpace">
+                    <h4>Course</h4>
+                    <input type="text" name="courseName" [(ngModel)]="attendance.course" class="form-control" disabled required>
+                </div>
+                <div class="container topSpace">
+                    <h4>Head of Department</h4>
+                    <input type="text" name="hodName" [(ngModel)]="attendance.hod" class="form-control"  required>
+                </div>
+                <div class="container topSpace">
+                    <h4>Topic</h4>
+                    <input type="text" name="topic" class="form-control" [(ngModel)]="attendance.topic">
+                </div>
+                <div>
+                </div>
+                <div class="container topSpace">
+                    <h4>Time In</h4>
+                    <div class="row">
+                        <div class="col ">
+                            <input type="text" class="form-control text-center" [ngModel]="attendance.in | date:'hh'" disabled>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control text-center" [ngModel]="attendance.in | date: 'mm'" disabled>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control text-center" [ngModel]="attendance.in | date: 'aa'" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="container topSpace">
+                    <h4>Time Out</h4>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control text-center" [ngModel]="attendance.out | date: 'hh'" disabled>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control text-center" [ngModel]="attendance.out | date: 'mm'" disabled>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control text-center" [ngModel]="attendance.out | date: 'aa'" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="row">
+                <div class="col">
+                    <div class="container-fluid">
+                        <h2 class="title">Report Info</h2>
+                        <div class="row container">
+                            <div class="col topSpace">
+                                <h4>Understanding</h4>
+                                <input type="number" class="form-control" min="0" max="10" [(ngModel)]="attendance.understanding">
+                            </div>
+                            <div class="division">
+                                <h3>/10</h3>
+                            </div>
+                            <div class="col topSpace">
+                                <h4>OTR</h4>
+                                <input type="number" class="form-control" min="0" max="100" [(ngModel)]="attendance.otr">
+                            </div>
+                            <div class="division">
+                                <h3>/100%</h3>
+                            </div>
+                        </div>
+                        <div class="container topSpace">
+                            <h4>Prev HW Done?</h4>
+                            <input type="text" class="form-control" [(ngModel)]="attendance.phwd">
+                        </div>
+                        <div class="container topSpace">
+                            <h4>Homework</h4>
+                            <textarea type="text" class="form-control" [(ngModel)]="attendance.homework"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container-fluid">
+                        <div class="container text-center gpArea">
+                            <h4>GP</h4>
+                            <div class="text-right">
+                                <h5 class="textColor">For Head of Department only</h5>
+                            </div>
+                        </div>
+                        <div class="container topSpace">
+                            <h4>Attendance</h4>
+                            <select type="text" class="form-control" [(ngModel)]="attendance.studentStatus">
+                                <option value=null>--</option>
+                                <option value="satisfactory">Satisfactory</option>
+                                <option value="close to satisfactory">Close to satisfactory</option>
+                                <option value="not satisfactory">Not satisfactory</option>
+                                <option value="irregular">Irregular</option>
+                            </select>
+                        </div>
+                        <div class="container topSpace">
+                            <h4>Remarks</h4>
+                            <textarea type="text" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-fluid">
+                <div class="container">
+                    <h4>WTR</h4>
+                    <div class="row">
+                        <div *ngFor="let test of attendance.tests" class="col-md-6  container topSpace">
+                            <app-written-test [test]="test"></app-written-test>
+                        </div>
+                        <div class="col-md-6 container-fluid">
+                            <div class="container topSpace">
+                                <button class="buttonStyle " (click)='addTest()'>Add Written Test</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixedFooter"></div>
+    <div class="row  justify-content-md-center  header">
+        <footer>
+            <mat-toolbar class="md-scroll-shrink">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="actionButton" (click)='updateData(attendance)'>Submit to Head of Department</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="actionButton" (click)='close()'>Cancel</button>
+                    </div>
+                </div>
+            </mat-toolbar>
+        </footer>
+    </div>
+
+</div>

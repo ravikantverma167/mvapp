@@ -1,0 +1,71 @@
+.header {
+   height: 60px;
+   background-color: #e5f0f8; 
+}
+
+.topSpace {
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+}
+
+/* .footerSpace {
+    padding-top: 13px;
+} */
+
+.form-control {
+    font-size: 1.5rem ;
+    height: 4rem;
+}
+
+.gpArea {
+    padding-top: 40px !important;
+    padding-bottom: 26px !important;
+}
+
+.division{
+    margin-top: 40px;
+    color: #80808078;
+}
+
+.buttonStyle {
+    padding: 54px 134px;
+    font-size: 13px;
+    text-align: center;
+    background-color: white;
+    border-style: dotted;
+}
+
+.studentName {
+    color: #5893ff;
+    margin-bottom: -15px;
+}
+
+.title {
+    color: dodgerblue;
+}
+
+.textColor {
+    color: gray;
+}
+
+.fixedFooter {
+    margin-top: 5px;
+}
+
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(4rem + 2px) !important;
+}
+
+.actionButton {
+    padding: 5px 78px;
+    font-size: 13px;
+    text-align: center;
+    background-color: #1e90ff;
+    border-radius: 8px;
+    color: white;
+}
+
+.loading {
+    color:  rgb(74, 130, 233)
+}
